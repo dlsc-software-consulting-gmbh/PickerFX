@@ -1,0 +1,134 @@
+@font-face {
+    font-family: "Roboto Medium";
+    src: url('com/dlsc/pickerfx/Roboto-Medium.ttf');
+}
+
+.picker {
+    -fx-indicator-size: 60;
+    -fx-cell-size: 60;
+    -fx-border-color: black;
+    -fx-border-width: 5;
+}
+
+.picker:vertical {
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0.4) 10%,
+    rgba(255, 255, 255, 0.45) 33%,
+    rgba(255, 255, 255, 0) 46%,
+    rgba(0, 0, 0, 0.4) 90%,
+    rgba(0, 0, 0, 1) 100%);
+}
+
+.picker:horizontal {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 0%,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0.4) 10%,
+    rgba(255, 255, 255, 0.45) 33%,
+    rgba(255, 255, 255, 0) 46%,
+    rgba(0, 0, 0, 0.4) 90%,
+    rgba(0, 0, 0, 1) 100%);
+}
+
+.picker:vertical > .shadow {
+    -fx-pref-height: 40;
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, rgba(0, 0, 0, .4), rgba(0, 0, 0, 0));
+}
+
+.picker:horizontal > .shadow {
+    -fx-pref-width: 40;
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 0%, rgba(0, 0, 0, .4), rgba(0, 0, 0, 0));
+}
+
+.picker > .shadow.top {
+}
+
+.picker > .shadow.bottom {
+    -fx-rotate: 180;
+}
+
+.picker:vertical > .container {
+    -fx-spacing: 5;
+    -fx-padding: 0 5 0 5;
+}
+
+.picker:horizontal > .container {
+    -fx-spacing: 5;
+    -fx-padding: 5 0 5 0;
+}
+
+.picker .segment-separator {
+    -fx-background-color: black;
+}
+
+.picker:vertical .segment-separator {
+    -fx-pref-width: 3;
+    -fx-min-width: 3;
+    -fx-max-width: 3;
+    -fx-pref-height: 20;
+}
+
+.picker:horizontal .segment-separator {
+    -fx-pref-height: 3;
+    -fx-min-height: 3;
+    -fx-max-height: 3;
+    -fx-pref-width: 20;
+}
+
+.picker:vertical > .indicator {
+    -fx-border-color: black, white transparent transparent white;
+    -fx-border-width: 1, 1;
+    -fx-border-insets: 0, 1;
+    -fx-background-color:
+    linear-gradient(#7ebcea, #2f4b8f),
+    linear-gradient(#426ab7, #263e75),
+    linear-gradient(#395cab, #223768),
+    rgba(255,255,255,.4);
+    -fx-background-insets: 0, 1, 2, 0 0 30 0;
+    -fx-background-radius: 0;
+    -fx-opacity: .4;
+}
+
+.picker:horizontal > .indicator {
+    -fx-border-color: black, white transparent transparent white;
+    -fx-border-width: 1, 1;
+    -fx-border-insets: 0, 1;
+    -fx-background-color:
+            linear-gradient(#7ebcea, #2f4b8f),
+            linear-gradient(#426ab7, #263e75),
+            linear-gradient(#395cab, #223768),
+            rgba(255,255,255,.4);
+    -fx-background-insets: 0, 1, 2, 0 30 0 0;
+    -fx-background-radius: 0;
+    -fx-opacity: .4;
+}
+
+.picker:vertical .segment {
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%,
+    rgba(255, 255, 255, .4),
+    rgba(255, 255, 255, .6) 25%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, .6) 75%,
+    rgba(255, 255, 255, .4) 100%);
+    -fx-pref-height: 250;
+    -fx-pref-width: 75;
+}
+
+.picker:horizontal .segment {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 0%,
+    rgba(255, 255, 255, .4),
+    rgba(255, 255, 255, .6) 25%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, .6) 75%,
+    rgba(255, 255, 255, .4) 100%);
+    -fx-pref-height: 60;
+    -fx-pref-width: 300;
+}
+
+.picker .segment > .segment-cell {
+    -fx-font-size: 3em;
+    -fx-font-family: "Roboto Medium";
+    -fx-text-fill: black;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+}

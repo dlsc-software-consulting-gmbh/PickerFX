@@ -1,0 +1,22 @@
+.local-date-picker {
+}
+
+.local-date-picker > .container > .segment.day {
+    -fx-pref-width: 75;
+}
+
+.local-date-picker > .container > .segment.month {
+    -fx-pref-width: 300;
+}
+
+.local-date-picker > .container > .segment.month .segment-cell {
+    -fx-padding: 0 10 0 10;
+}
+
+.local-date-picker > .container > .segment.year {
+    -fx-pref-width: 150;
+}
+
+.local-date-picker:invalid > .container > .segment.day .segment-cell:selected {
+    -fx-text-fill: red;
+}

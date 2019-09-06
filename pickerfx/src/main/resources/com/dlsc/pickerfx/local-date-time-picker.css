@@ -1,0 +1,35 @@
+.local-date-time-picker {
+    -fx-border-color: black;
+    -fx-border-width: 5;
+}
+
+.local-date-time-picker:vertical > .container {
+    -fx-spacing: 0;
+    -fx-padding: 0;
+}
+
+.local-date-time-picker:horizontal > .container {
+    -fx-spacing: 0;
+    -fx-padding: 0;
+}
+
+.local-date-time-picker .local-date-picker {
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.local-date-time-picker .local-time-picker {
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.local-date-time-picker:vertical > .shadow {
+}
+
+.local-date-time-picker:vertical > .shadow {
+    -fx-pref-height: 0;
+}
+
+.local-date-time-picker:horizontal > .shadow {
+    -fx-pref-width: 0;
+}

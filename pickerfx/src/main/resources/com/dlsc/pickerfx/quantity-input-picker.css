@@ -1,0 +1,25 @@
+.quantity-input-picker {
+}
+
+.quantity-input-picker > .inner-picker > .container > .segment.value {
+    -fx-pref-width: 170;
+}
+
+.quantity-input-picker > .inner-picker > .container > .segment.unit {
+    -fx-pref-width: 90;
+}
+
+.quantity-input-picker > .inner-picker > .container > .segment.unit:no-base-unit .segment-cell:selected {
+    -fx-text-fill: orange;
+}
+
+.quantity-input-picker > .inner-picker > .container > .dot {
+    -fx-pref-width: 20;
+    -fx-font-size: 3em;
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%,
+    rgba(255, 255, 255, .4),
+    rgba(255, 255, 255, .6) 25%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, .6) 75%,
+    rgba(255, 255, 255, .4) 100%);
+}

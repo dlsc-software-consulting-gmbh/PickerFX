@@ -1,0 +1,6 @@
+.integer-picker {
+}
+
+.integer-picker .container {
+    -fx-spacing: 0;
+}

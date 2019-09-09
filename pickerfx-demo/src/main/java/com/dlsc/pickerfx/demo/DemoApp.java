@@ -35,7 +35,7 @@ public class DemoApp extends Application {
         flowPane.getChildren().add(wrap("Date & Time Picker", localDateTimePicker));
 
         Scene scene = new Scene(flowPane);
-        stage.setTitle("Picker Demo");
+        stage.setTitle("PickerFX Demo");
         stage.setScene(scene);
         stage.sizeToScene();
         stage.centerOnScreen();

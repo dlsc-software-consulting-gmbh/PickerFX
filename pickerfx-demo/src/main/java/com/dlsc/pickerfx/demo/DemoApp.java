@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 public class DemoApp extends Application {
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         IntegerPicker integerPicker = new IntegerPicker();
         ItemPicker itemPicker = new ItemPicker("A", "B", "C", "D", "E");
         LocalDatePicker localDatePicker = new LocalDatePicker();

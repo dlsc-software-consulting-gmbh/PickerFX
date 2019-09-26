@@ -64,6 +64,8 @@ public class Segment<T, S> extends Control {
 
         setCellFactory(p -> new SegmentCell<>());
 
+        this.readOnlyProperty().bind(picker.readOnlyProperty());
+        
         if (items != null) {
             getItems().setAll(items);
         }

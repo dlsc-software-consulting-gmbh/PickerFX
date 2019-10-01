@@ -7,7 +7,7 @@
     <name>PickerFXParent</name>
     <groupId>com.dlsc.pickerfx</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -39,7 +39,7 @@
             <dependency>
                 <groupId>com.dlsc.pickerfx</groupId>
                 <artifactId>pickerfx</artifactId>
-                <version>1.0.1</version>
+                <version>1.0.2</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

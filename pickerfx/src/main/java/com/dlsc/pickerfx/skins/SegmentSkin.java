@@ -342,6 +342,10 @@ public class SegmentSkin<T, S> extends SkinBase<Segment<T, S>> {
 
         final SegmentCell<S> cell = cellFactory.call(segment);
 
+        // Important to add cell first before calling setters and update on it,
+        // otherwise layout code gets invoked indefinitely.
+        getChildren().add(cell);
+
         cell.update(items.get(index));
         cell.setIndex(index);
         cell.setPosition(position);
@@ -349,7 +353,6 @@ public class SegmentSkin<T, S> extends SkinBase<Segment<T, S>> {
         cell.setMouseTransparent(true);
         cell.setSelected(getValueIndexForLocation() == index);
 
-        getChildren().add(cell);
 
         final double cellSize = segment.getPicker().getCellSize();
         if (segment.getPicker().getOrientation().equals(Orientation.VERTICAL)) {

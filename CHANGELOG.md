@@ -1,5 +1,19 @@
 # Change Log
 
+## [1.0.3](https://github.com/dlsc-software-consulting-gmbh/PickerFX/tree/1.0.3) (2019-10-09)
+[Full Changelog](https://github.com/dlsc-software-consulting-gmbh/PickerFX/compare/1.0.2...1.0.3)
+
+**Closed issues:**
+
+- layoutChildren runs constantly [\#1](https://github.com/dlsc-software-consulting-gmbh/PickerFX/issues/1)
+
+**Merged pull requests:**
+
+- Update Segment.java [\#4](https://github.com/dlsc-software-consulting-gmbh/PickerFX/pull/4) ([igorshelopaev](https://github.com/igorshelopaev))
+
+## [1.0.2](https://github.com/dlsc-software-consulting-gmbh/PickerFX/tree/1.0.2) (2019-10-01)
+[Full Changelog](https://github.com/dlsc-software-consulting-gmbh/PickerFX/compare/1.0.1...1.0.2)
+
 ## [1.0.1](https://github.com/dlsc-software-consulting-gmbh/PickerFX/tree/1.0.1) (2019-09-10)
 [Full Changelog](https://github.com/dlsc-software-consulting-gmbh/PickerFX/compare/1.0.0...1.0.1)
 

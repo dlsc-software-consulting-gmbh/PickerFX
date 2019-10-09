@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.dlsc.pickerfx</groupId>
         <artifactId>parent</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.3</version>
     </parent>
 
     <artifactId>pickerfx-demo</artifactId>
@@ -59,7 +59,7 @@
         <dependency>
             <groupId>com.dlsc.pickerfx</groupId>
             <artifactId>pickerfx</artifactId>
-            <version>1.0.2</version>
+            <version>1.0.3</version>
         </dependency>
     </dependencies>
 

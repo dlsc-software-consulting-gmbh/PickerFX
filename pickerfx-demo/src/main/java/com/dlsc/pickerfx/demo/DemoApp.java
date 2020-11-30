@@ -7,6 +7,10 @@ import com.dlsc.pickerfx.LocalDatePicker;
 import com.dlsc.pickerfx.LocalDateTimePicker;
 import com.dlsc.pickerfx.LocalTimePicker;
 import com.dlsc.pickerfx.TimeFormat;
+
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
+
 import javafx.application.Application;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -25,6 +29,9 @@ public class DemoApp extends Application {
         LocalDateTimePicker localDateTimePicker = new LocalDateTimePicker();
         LocalTimePicker localTimePicker = new LocalTimePicker();
         DurationPicker durationPicker = new DurationPicker();
+
+        durationPicker.getFields().setAll(ChronoUnit.HOURS, ChronoUnit.MINUTES, ChronoUnit.SECONDS, ChronoUnit.MILLIS);
+        durationPicker.setMaximumDuration(Duration.ofHours(10));
 
         localTimePicker.setTimeFormat(TimeFormat.TWELVE_HOURS);
 

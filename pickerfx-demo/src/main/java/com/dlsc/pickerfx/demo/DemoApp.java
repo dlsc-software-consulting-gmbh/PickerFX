@@ -1,5 +1,6 @@
 package com.dlsc.pickerfx.demo;
 
+import com.dlsc.pickerfx.DurationPicker;
 import com.dlsc.pickerfx.IntegerPicker;
 import com.dlsc.pickerfx.ItemPicker;
 import com.dlsc.pickerfx.LocalDatePicker;
@@ -23,6 +24,7 @@ public class DemoApp extends Application {
         LocalDatePicker localDatePicker = new LocalDatePicker();
         LocalDateTimePicker localDateTimePicker = new LocalDateTimePicker();
         LocalTimePicker localTimePicker = new LocalTimePicker();
+        DurationPicker durationPicker = new DurationPicker();
 
         localTimePicker.setTimeFormat(TimeFormat.TWELVE_HOURS);
 
@@ -36,6 +38,7 @@ public class DemoApp extends Application {
         flowPane.getChildren().add(wrap("Date Picker", localDatePicker));
         flowPane.getChildren().add(wrap("Time Picker", localTimePicker));
         flowPane.getChildren().add(wrap("Date & Time Picker", localDateTimePicker));
+        flowPane.getChildren().add(wrap("Duration Picker", durationPicker));
 
         Scene scene = new Scene(flowPane);
         stage.setTitle("PickerFX Demo");

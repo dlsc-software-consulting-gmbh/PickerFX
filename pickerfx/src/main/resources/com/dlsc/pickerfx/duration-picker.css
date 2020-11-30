@@ -1,0 +1,41 @@
+.duration-picker {
+}
+
+.duration-picker > .container > .segment.hour {
+    -fx-pref-width: 70;
+}
+
+.duration-picker > .container > .segment.minute1,
+.duration-picker > .container > .segment.minute2 {
+    -fx-pref-width: 70;
+}
+
+.duration-picker > .container > .segment.meridiem {
+    -fx-pref-width: 70;
+}
+
+.duration-picker:horizontal {
+    -fx-cell-size: 70;
+    -fx-indicator-size: 70;
+}
+
+.duration-picker:vertical > .container > .colon {
+    -fx-pref-width: 20;
+    -fx-font-size: 3em;
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%,
+    rgba(255, 255, 255, .4),
+    rgba(255, 255, 255, .6) 25%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, .6) 75%,
+    rgba(255, 255, 255, .4) 100%);
+}
+
+.duration-picker:horizontal > .container > .colon {
+    -fx-pref-height: 10;
+    -fx-background-color: linear-gradient(from 0% 0% to 1000% 0%,
+    rgba(255, 255, 255, .4),
+    rgba(255, 255, 255, .6) 25%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, .6) 75%,
+    rgba(255, 255, 255, .4) 100%);
+}

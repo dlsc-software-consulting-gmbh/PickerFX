@@ -2,6 +2,10 @@ package com.dlsc.pickerfx.skins;
 
 import com.dlsc.pickerfx.Picker;
 import com.dlsc.pickerfx.Segment;
+
+import java.util.Collections;
+import java.util.List;
+
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -11,9 +15,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
-
-import java.util.Collections;
-import java.util.List;
 
 public class PickerSkinBase<T extends Picker<?>> extends SkinBase<T> {
 
@@ -119,6 +120,5 @@ public class PickerSkinBase<T extends Picker<?>> extends SkinBase<T> {
             ps = bottomShadow.prefWidth(-1);
             bottomShadow.resizeRelocate(contentX + contentWidth - ps, contentY, ps, contentHeight);
         }
-
     }
 }

@@ -7,7 +7,7 @@
     <name>PickerFXParent</name>
     <groupId>com.dlsc.pickerfx</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.3</version>
+    <version>1.1.0</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -15,18 +15,35 @@
         <module>pickerfx-demo</module>
     </modules>
 
+    <description>A framework for creating picker controls.</description>
+
+    <url>https://github.com/dlsc-software-consulting-gmbh/PickerFX</url>
+
+    <licenses>
+        <license>
+            <name>Apache 2.0</name>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/dlsc-software-consulting-gmbh/PickerFX</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Dirk Lemmermann</name>
+            <url>http://www.dlsc.com</url>
+            <organization>DLSC Software &amp; Consulting</organization>
+        </developer>
+    </developers>
+
     <properties>
         <sonar.projectKey>dlsc-software-consulting-gmbh_PickerFX
         </sonar.projectKey>
         <sonar.organization>dlsc-software-consulting-gmbh</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
-        <maven.deploy.skip>true</maven.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <asciidoctor.maven.plugin.version>1.6.0
-        </asciidoctor.maven.plugin.version>
-        <asciidoctorj.version>1.6.2</asciidoctorj.version>
-        <jruby.version>9.2.6.0</jruby.version>
     </properties>
 
     <distributionManagement>
@@ -39,12 +56,22 @@
         </repository>
     </distributionManagement>
 
+    <repositories>
+
+        <repository>
+            <id>bintray-dlsc-oss-repository</id>
+            <name>bintray</name>
+            <url>https://dl.bintray.com/dlsc-oss/repository</url>
+        </repository>
+
+    </repositories>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>com.dlsc.pickerfx</groupId>
                 <artifactId>pickerfx</artifactId>
-                <version>1.0.3</version>
+                <version>1.1.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -52,54 +79,60 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.asciidoctor</groupId>
-                <artifactId>asciidoctor-maven-plugin</artifactId>
-                <version>${asciidoctor.maven.plugin.version}</version>
-                <dependencies>
-                    <!-- Comment this section to use the default jruby artifact provided by the plugin -->
-                    <dependency>
-                        <groupId>org.jruby</groupId>
-                        <artifactId>jruby-complete</artifactId>
-                        <version>${jruby.version}</version>
-                    </dependency>
-                    <!-- Comment this section to use the default AsciidoctorJ artifact provided by the plugin -->
-                    <dependency>
-                        <groupId>org.asciidoctor</groupId>
-                        <artifactId>asciidoctorj</artifactId>
-                        <version>${asciidoctorj.version}</version>
-                    </dependency>
-                </dependencies>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
                 <configuration>
-                    <sourceDirectory>docs</sourceDirectory>
-                    <attributes>
-                        <project-version>${project.version}</project-version>
-                    </attributes>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <failOnError>false</failOnError>
+                    <force>true</force>
+                    <windowtitle>PickerFX API</windowtitle>
+                    <additionalJOption>-J-Djavafx.javadoc=true
+                    </additionalJOption>
+                    <docfilessubdirs>true</docfilessubdirs>
                 </configuration>
                 <executions>
                     <execution>
-                        <id>asciidoc-to-html</id>
-                        <phase>generate-resources</phase>
+                        <id>make-docs
+                        </id> <!-- this is used for inheritance merges -->
+                        <phase>package
+                        </phase> <!-- bind to the packaging phase -->
                         <goals>
-                            <goal>process-asciidoc</goal>
+                            <goal>aggregate</goal>
                         </goals>
-                        <configuration>
-                            <backend>html5</backend>
-                            <sourceHighlighter>coderay</sourceHighlighter>
-                            <attributes>
-                                <coderay-linenums-mode>table
-                                </coderay-linenums-mode>
-                                <imagesdir></imagesdir>
-                                <toc>left</toc>
-                                <icons>font</icons>
-                                <linkattrs>true</linkattrs>
-                                <encoding>utf-8</encoding>
-                            </attributes>
-                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
-
 
 </project>

@@ -9,14 +9,11 @@
     <parent>
         <groupId>com.dlsc.pickerfx</groupId>
         <artifactId>parent</artifactId>
-        <version>1.0.3</version>
+        <version>1.1.0</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>pickerfx-demo</artifactId>
-
-    <properties>
-        <maven.deploy.skip>true</maven.deploy.skip>
-    </properties>
 
     <build>
         <plugins>
@@ -28,30 +25,6 @@
                     <mainClass>com.dlsc.pickerfx.demo.DemoApp</mainClass>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <source>11</source>
-                    <target>11</target>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
@@ -59,7 +32,7 @@
         <dependency>
             <groupId>com.dlsc.pickerfx</groupId>
             <artifactId>pickerfx</artifactId>
-            <version>1.0.3</version>
+            <version>1.1.0</version>
         </dependency>
     </dependencies>
 

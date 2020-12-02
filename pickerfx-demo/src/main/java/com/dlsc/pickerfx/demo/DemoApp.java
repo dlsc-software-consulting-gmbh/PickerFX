@@ -30,8 +30,8 @@ public class DemoApp extends Application {
         LocalTimePicker localTimePicker = new LocalTimePicker();
         DurationPicker durationPicker = new DurationPicker();
 
-        durationPicker.getFields().setAll(ChronoUnit.HOURS, ChronoUnit.MINUTES, ChronoUnit.SECONDS, ChronoUnit.MILLIS);
-        durationPicker.setMaximumDuration(Duration.ofHours(10));
+        durationPicker.getFields().setAll(ChronoUnit.DAYS, ChronoUnit.HOURS, ChronoUnit.MINUTES, ChronoUnit.SECONDS, ChronoUnit.MILLIS);
+        durationPicker.setMaximumDuration(Duration.ofDays(7));
 
         localTimePicker.setTimeFormat(TimeFormat.TWELVE_HOURS);
 

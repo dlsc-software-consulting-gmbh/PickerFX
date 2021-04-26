@@ -1,0 +1,12 @@
+{
+  "samples": [
+    {
+      "category": "pickerfx",
+      "name": "Value Picker",
+      "desc": "A (touch) control for choosing a time, a date, a duration.",
+      "project": "PickerFX",
+      "preview": "/preview-picker.png",
+      "classname": "com.dlsc.pickerfx.demo.DemoApp"
+    }
+  ]
+}

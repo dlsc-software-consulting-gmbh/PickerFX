@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <name>PickerFXDemo</name>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <packaging>jar</packaging>
 
     <parent>
         <groupId>com.dlsc.pickerfx</groupId>
         <artifactId>parent</artifactId>
-        <version>1.2.0</version>
+        <version>1.2.1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -34,7 +34,7 @@
         <dependency>
             <groupId>com.dlsc.pickerfx</groupId>
             <artifactId>pickerfx</artifactId>
-            <version>1.2.0</version>
+            <version>1.2.1</version>
         </dependency>
     </dependencies>
 

@@ -24,7 +24,7 @@ public class SegmentSkin<T, S> extends SkinBase<Segment<T, S>> {
 
     private boolean updatingValue;
 
-    private double STEPS = 100;
+    private final double STEPS = 100;
 
     private double mouseStartX;
 
@@ -42,7 +42,7 @@ public class SegmentSkin<T, S> extends SkinBase<Segment<T, S>> {
 
     private boolean dragging;
 
-    private FixerService fixerService;
+    private final FixerService fixerService;
 
     // inertia = an already finished gesture
     private boolean inertia;

@@ -32,7 +32,7 @@ public class LocalTimePicker extends Picker<LocalTime> {
             public void update(Integer item) {
                 super.update(item);
 
-                if (item < 10) {
+                if (item != null && item < 10) {
                     setText("0" + getText());
                 }
             }

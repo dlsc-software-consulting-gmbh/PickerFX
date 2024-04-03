@@ -8,6 +8,8 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.Skin;
 import javafx.util.Callback;
 
+import java.util.Objects;
+
 /**
  * A specific picker implementation used for entering integer values. The application
  * has to first choose how many digits the picker should show.
@@ -38,7 +40,7 @@ public class IntegerPicker extends Picker<Integer> {
 
     @Override
     public String getUserAgentStylesheet() {
-        return getClass().getResource("integer-picker.css").toExternalForm();
+        return Objects.requireNonNull(getClass().getResource("integer-picker.css")).toExternalForm();
     }
 
     /**

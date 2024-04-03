@@ -45,7 +45,7 @@ public class Segment<T, S> extends Control {
      * @param picker The picker parent of this segment control.
      */
     public Segment(Picker<T> picker) {
-        this(picker, null);
+        this(picker, (S) null);
     }
 
     /**
@@ -54,6 +54,7 @@ public class Segment<T, S> extends Control {
      * @param picker The picker parent of this segment control.
      * @param items The default items in the segment.
      */
+    @SafeVarargs
     public Segment(Picker<T> picker, S... items) {
         this.picker = Objects.requireNonNull(picker);
 
@@ -103,10 +104,6 @@ public class Segment<T, S> extends Control {
     public final S getValue() { return valueProperty().get(); }
     public final void setValue(S value) { this.value.set(value); }
 
-    /**
-     *
-     * @return
-     */
     public final BooleanProperty wrapItemsProperty() {
         return wrapItems;
     }

@@ -7,6 +7,7 @@ import javafx.scene.control.Skin;
 import javafx.util.Callback;
 
 import java.time.LocalTime;
+import java.util.Objects;
 
 /**
  * A specific picker implementation used to let the user select a time.
@@ -23,10 +24,10 @@ public class LocalTimePicker extends Picker<LocalTime> {
 
     public LocalTimePicker() {
         getStyleClass().add("local-time-picker");
-        getStylesheets().add(getClass().getResource("local-time-picker.css").toExternalForm());
+
         setValue(LocalTime.now());
 
-        setMinuteCellFactory(segment -> new SegmentCell<Integer>() {
+        setMinuteCellFactory(segment -> new SegmentCell<>() {
             @Override
             public void update(Integer item) {
                 super.update(item);
@@ -41,6 +42,11 @@ public class LocalTimePicker extends Picker<LocalTime> {
     @Override
     protected Skin<?> createDefaultSkin() {
         return new LocalTimePickerSkin(this);
+    }
+
+    @Override
+    public String getUserAgentStylesheet() {
+        return Objects.requireNonNull(getClass().getResource("local-time-picker.css")).toExternalForm();
     }
 
     /**

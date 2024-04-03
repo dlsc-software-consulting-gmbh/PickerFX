@@ -7,6 +7,7 @@ import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
@@ -24,7 +25,7 @@ public class DurationPicker extends Picker<Duration> {
 
     public DurationPicker() {
         getStyleClass().add("duration-picker");
-        getStylesheets().add(getClass().getResource("duration-picker.css").toExternalForm());
+
         setValue(Duration.ZERO);
 
         getFields().setAll(ChronoUnit.DAYS, ChronoUnit.HOURS, ChronoUnit.MINUTES, ChronoUnit.SECONDS);
@@ -37,6 +38,11 @@ public class DurationPicker extends Picker<Duration> {
     @Override
     protected Skin<?> createDefaultSkin() {
         return new DurationPickerSkin(this);
+    }
+
+    @Override
+    public String getUserAgentStylesheet() {
+        return Objects.requireNonNull(getClass().getResource("duration-picker.css")).toExternalForm();
     }
 
     // minimum duration
@@ -82,6 +88,8 @@ public class DurationPicker extends Picker<Duration> {
         this.maximumDuration.set(maximumDuration);
     }
 
+    // fields
+
     private final ListProperty<ChronoUnit> fields = new SimpleListProperty<>(this, "fields", FXCollections.observableArrayList());
 
     public final ObservableList<ChronoUnit> getFields() {
@@ -92,25 +100,26 @@ public class DurationPicker extends Picker<Duration> {
         return fields;
     }
 
-    public void setFields(ObservableList<ChronoUnit> fields) {
+    public final void setFields(ObservableList<ChronoUnit> fields) {
         this.fields.set(fields);
+    }
+
+    // cell factories
+
+    private final ObjectProperty<Map<ChronoUnit, Callback<Segment<LocalTime, Integer>, SegmentCell<Integer>>>> cellFactories = new SimpleObjectProperty<>(this, "cellFactories", new HashMap<>());
+
+    public final Map<ChronoUnit, Callback<Segment<LocalTime, Integer>, SegmentCell<Integer>>> getCellFactories() {
+        return cellFactories.get();
     }
 
     /**
      * The cell factory used by the segment that displays the hours.
      */
-    private final ObjectProperty<Map<ChronoUnit, Callback<Segment<LocalTime, Integer>, SegmentCell<Integer>>>> cellFactories =
-            new SimpleObjectProperty<>(this, "cellFactories", new HashMap<>());
-
-    public Map<ChronoUnit, Callback<Segment<LocalTime, Integer>, SegmentCell<Integer>>> getCellFactories() {
-        return cellFactories.get();
-    }
-
-    public ObjectProperty<Map<ChronoUnit, Callback<Segment<LocalTime, Integer>, SegmentCell<Integer>>>> cellFactoriesProperty() {
+    public final ObjectProperty<Map<ChronoUnit, Callback<Segment<LocalTime, Integer>, SegmentCell<Integer>>>> cellFactoriesProperty() {
         return cellFactories;
     }
 
-    public void setCellFactories(Map<ChronoUnit, Callback<Segment<LocalTime, Integer>, SegmentCell<Integer>>> cellFactories) {
+    public final void setCellFactories(Map<ChronoUnit, Callback<Segment<LocalTime, Integer>, SegmentCell<Integer>>> cellFactories) {
         this.cellFactories.set(cellFactories);
     }
 }

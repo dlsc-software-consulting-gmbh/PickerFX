@@ -18,7 +18,6 @@ public class LocalDatePicker extends Picker<LocalDate> {
 
     public LocalDatePicker() {
         getStyleClass().add("local-date-picker");
-        getStylesheets().add(getClass().getResource("local-date-picker.css").toExternalForm());
         setValue(LocalDate.now());
     }
 
@@ -27,12 +26,16 @@ public class LocalDatePicker extends Picker<LocalDate> {
         return new LocalDatePickerSkin(this);
     }
 
+    @Override
+    public String getUserAgentStylesheet() {
+        return Objects.requireNonNull(getClass().getResource("local-date-picker.css")).toExternalForm();
+    }
+
     public final ObjectProperty<DateFormat> dateFormatProperty() {
         return dateFormat;
     }
 
-    private final ObjectProperty<DateFormat> dateFormat = new SimpleObjectProperty<DateFormat>(this, "dateFormat",
-            DateFormat.STANDARD) {
+    private final ObjectProperty<DateFormat> dateFormat = new SimpleObjectProperty<>(this, "dateFormat", DateFormat.STANDARD) {
         @Override
         public void set(DateFormat newValue) {
             super.set(Objects.requireNonNull(newValue));

@@ -24,6 +24,7 @@ import javafx.scene.layout.Region;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * The base class of all picker controls.
@@ -38,11 +39,9 @@ public abstract class Picker<T> extends Control {
 
     protected Picker() {
         getStyleClass().add("picker");
-        getStylesheets().add(Picker.class.getResource("picker.css").toExternalForm());
         setMaxWidth(Region.USE_PREF_SIZE);
         setMaxHeight(Region.USE_PREF_SIZE);
         listenForInvalidChanges();
-        // TODO: replace
         ControlsUtil.bindBooleanToPseudoclass(this, invalid, PseudoClass.getPseudoClass("invalid"));
         ControlsUtil.bindBooleanToPseudoclass(this, readOnly, PseudoClass.getPseudoClass("disabled"));
         pseudoClassStateChanged(PSEUDO_CLASS_VERTICAL, true);

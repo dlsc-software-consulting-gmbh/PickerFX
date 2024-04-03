@@ -66,7 +66,11 @@ public class SegmentCell<T> extends Label {
     }
 
     public void update(T item) {
-        setText(item.toString());
+        if (item != null) {
+            setText(item.toString());
+        } else {
+            setText(null);
+        }
     }
 
     private BooleanProperty selected;
@@ -76,7 +80,7 @@ public class SegmentCell<T> extends Label {
     }
 
     public final boolean isSelected() {
-        return selected == null ? false : selected.get();
+        return selected != null && selected.get();
     }
 
     public final BooleanProperty selectedProperty() {

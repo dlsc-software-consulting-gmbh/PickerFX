@@ -10,6 +10,8 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Skin;
 import javafx.util.Callback;
 
+import java.util.Objects;
+
 /**
  * A specific picker implementation used for displaying any type of item. Similar in
  * behaviour to a ComboBox instance.
@@ -23,6 +25,7 @@ public class ItemPicker<T> extends Picker<T> {
      *
      * @param items the items
      */
+    @SafeVarargs
     public ItemPicker(T... items) {
         this();
         getStyleClass().add("item-picker");
@@ -30,6 +33,11 @@ public class ItemPicker<T> extends Picker<T> {
         if (items != null) {
             getItems().setAll(items);
         }
+    }
+
+    @Override
+    public String getUserAgentStylesheet() {
+        return Objects.requireNonNull(ItemPicker.class.getResource("picker.css")).toExternalForm();
     }
 
     /**
@@ -40,12 +48,12 @@ public class ItemPicker<T> extends Picker<T> {
         super();
     }
 
+    private final ListProperty<T> items = new SimpleListProperty<>(FXCollections.observableArrayList());
+
     /**
      * The list of items that will be displayed by the picker.
      */
-    private final ListProperty<T> items = new SimpleListProperty<>(FXCollections.observableArrayList());
-
-    public ListProperty<T> itemsProperty() {
+    public final ListProperty<T> itemsProperty() {
         return items;
     }
 
@@ -53,7 +61,7 @@ public class ItemPicker<T> extends Picker<T> {
         return items;
     }
 
-    public void setItems(ObservableList items) {
+    public final void setItems(ObservableList<T> items) {
         this.items.set(items);
     }
 
@@ -64,15 +72,20 @@ public class ItemPicker<T> extends Picker<T> {
 
     private final ObjectProperty<Callback<Segment<T, T>, SegmentCell<T>>> cellFactory = new SimpleObjectProperty<>(this, "cellFactory", segment -> new SegmentCell<>());
 
-    public Callback<Segment<T, T>, SegmentCell<T>> getCellFactory() {
+    public final Callback<Segment<T, T>, SegmentCell<T>> getCellFactory() {
         return cellFactory.get();
     }
 
-    public ObjectProperty<Callback<Segment<T, T>, SegmentCell<T>>> cellFactoryProperty() {
+    /**
+     * The cell factory for this picker.
+     *
+     * @return the cell factory
+     */
+    public final ObjectProperty<Callback<Segment<T, T>, SegmentCell<T>>> cellFactoryProperty() {
         return cellFactory;
     }
 
-    public void setCellFactory(Callback<Segment<T, T>, SegmentCell<T>> factory) {
+    public final void setCellFactory(Callback<Segment<T, T>, SegmentCell<T>> factory) {
         this.cellFactory.set(factory);
     }
 }

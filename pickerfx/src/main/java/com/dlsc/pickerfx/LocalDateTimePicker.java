@@ -4,6 +4,7 @@ import com.dlsc.pickerfx.skins.LocalDateTimePickerSkin;
 import javafx.scene.control.Skin;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 /**
  * A specific picker implementation used to let the user select a date and a time. The picker's skin composes
@@ -20,7 +21,7 @@ public class LocalDateTimePicker extends Picker<LocalDateTime> {
      */
     public LocalDateTimePicker() {
         getStyleClass().add("local-date-time-picker");
-        getStylesheets().add(getClass().getResource("local-date-time-picker.css").toExternalForm());
+
         setValue(LocalDateTime.now());
 
         datePicker = new LocalDatePicker();
@@ -30,6 +31,11 @@ public class LocalDateTimePicker extends Picker<LocalDateTime> {
     @Override
     protected Skin<?> createDefaultSkin() {
         return new LocalDateTimePickerSkin(this);
+    }
+
+    @Override
+    public String getUserAgentStylesheet() {
+        return Objects.requireNonNull(getClass().getResource("local-date-time-picker.css")).toExternalForm();
     }
 
     /**

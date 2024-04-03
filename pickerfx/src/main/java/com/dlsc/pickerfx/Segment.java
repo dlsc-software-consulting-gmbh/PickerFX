@@ -41,21 +41,11 @@ public class Segment<T, S> extends Control {
     private final Picker<T> picker;
 
     /**
-     * Creates a new instance of a segment with no items and {@code null} value.
-     * @param picker The picker parent of this segment control.
-     */
-    public Segment(Picker<T> picker) {
-        this(picker, (S) null);
-    }
-
-    /**
      * Creates a new instance of a segment with the given list of items and {@code null} value.
      *
      * @param picker The picker parent of this segment control.
-     * @param items The default items in the segment.
      */
-    @SafeVarargs
-    public Segment(Picker<T> picker, S... items) {
+    public Segment(Picker<T> picker) {
         this.picker = Objects.requireNonNull(picker);
 
         getStyleClass().add("segment");
@@ -66,10 +56,6 @@ public class Segment<T, S> extends Control {
         setCellFactory(p -> new SegmentCell<>());
 
         readOnlyProperty().bind(picker.readOnlyProperty());
-        
-        if (items != null) {
-            getItems().setAll(items);
-        }
     }
 
     @Override

@@ -112,12 +112,12 @@ public class DurationPickerSkin extends PickerSkinBase<DurationPicker> {
         return field;
     }
 
-    private void addItems(Segment<Duration, Long> field, long maxValue) {
+    private void addItems(Segment<Duration, Long> fieldSegment, long maxValue) {
+        fieldSegment.getItems().clear();
         for (long i = 0; i <= maxValue; i++) {
-            field.getItems().add(i);
+            fieldSegment.getItems().add(i);
         }
     }
-
 
     private void updateSegmentValues() {
         if (updatingValue) {

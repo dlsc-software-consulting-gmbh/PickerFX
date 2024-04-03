@@ -158,9 +158,11 @@ public class DurationPickerSkin extends PickerSkinBase<DurationPicker> {
             Duration duration = Duration.ZERO;
             for (ChronoUnit unit : getSkinnable().getFields()) {
                 Segment<Duration, Long> segment = segmentMap.get(unit);
-                duration = duration.plus(segment.getValue(), unit);
+                Long value = segment.getValue();
+                if (value != null) {
+                    duration = duration.plus(value, unit);
+                }
             }
-
             getSkinnable().setValue(duration);
         } finally {
             updatingValue = false;
